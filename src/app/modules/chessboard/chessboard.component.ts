@@ -12,4 +12,8 @@ export class ChessboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    let board = ChessBoard('board', 'start');
+  }
+
 }
