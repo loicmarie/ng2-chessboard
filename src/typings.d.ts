@@ -5,3 +5,4 @@ interface NodeModule {
 }
 
 declare var $: any;
+declare var ChessBoard: any;

@@ -9,7 +9,12 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        {
+          "glob": "**/*",
+          "input": "../node_modules/chessboardjs/www/releases/0.3.0/img",
+          "output": "./img"
+        }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,10 +24,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
