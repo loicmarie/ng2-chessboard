@@ -2,6 +2,8 @@
   "name": "ng2-chessboard",
   "version": "0.0.0",
   "license": "MIT",
+  "description": "Angular 2 module wrapping chessboardjs library as a component",
+  "keywords": ["chess", "chessboard", "chessboardjs", "angular", "angular2", "module"],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
