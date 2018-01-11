@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  position: any = 'start';
+
+  change(pos: string) {
+    this.position = pos;
+  }
+
+  ngAfterViewInit() {
+  }
 }
