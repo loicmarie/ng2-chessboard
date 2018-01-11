@@ -9,12 +9,16 @@ export class ChessboardComponent implements OnInit {
 
   board: any;
 
-  private _position: any = 'start';
-  private _orientation: Boolean = true;
-  private _showNotation: Boolean = true;
-  private _draggable: Boolean = false;
-  private _dropOffBoard: string = 'snapback';
-  private _pieceTheme: any = 'img/chesspieces/wikipedia/{piece}.png';
+  private _position:      any     = 'start';
+  private _orientation:   Boolean = true;
+  private _showNotation:  Boolean = true;
+  private _draggable:     Boolean = false;
+  private _dropOffBoard:  string  = 'snapback';
+  private _pieceTheme:    any     = 'img/chesspieces/wikipedia/{piece}.png';
+  private _moveSpeed:     any     = 'slow';
+  private _snapbackSpeed: any     = 500;
+  private _snapSpeed:     any     = 100;
+  private _sparePieces:   Boolean = true;
 
   @Input() animation: Boolean = true;
   @Output() animationChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
@@ -31,45 +35,86 @@ export class ChessboardComponent implements OnInit {
   set orientation(value: Boolean) {
     this._orientation = value;
     if(this.board) this.board.orientation(value ? 'white' : 'black');
+    this.orientationChange.emit(this._orientation);
   }
 
   @Input()
   set showNotation(value: Boolean) {
     this._showNotation = value;
     if(this.board) this.load();
+    this.showNotationChange.emit(this._showNotation);
   }
 
   @Input()
   set draggable(value: Boolean) {
     this._draggable = value;
     if(this.board) this.load();
+    this.draggableChange.emit(this._draggable);
   }
 
   @Input()
   set dropOffBoard(value: string) {
     this._dropOffBoard = value;
     if(this.board) this.load();
+    this.dropOffBoardChange.emit(this._dropOffBoard);
   }
 
   @Input()
   set pieceTheme(value: any) {
     this._pieceTheme = value instanceof Function ? value() : value;
     if(this.board) this.load();
+    this.pieceThemeChange.emit(this._pieceTheme);
   }
 
-  get position():     any     { return this._position;     }
-  get orientation():  Boolean { return this._orientation;  }
-  get showNotation(): Boolean { return this._showNotation; }
-  get draggable():    Boolean { return this._draggable;    }
-  get dropOffBoard(): string  { return this._dropOffBoard; }
-  get pieceTheme():   any     { return this._pieceTheme;   }
+  @Input()
+  set moveSpeed(value: any) {
+    this._moveSpeed = value;
+    if(this.board) this.load();
+    this.moveSpeedChange.emit(this._moveSpeed);
+  }
 
-  @Output() positionChange:     EventEmitter<any>     = new EventEmitter<any>();
-  @Output() orientationChange:  EventEmitter<Boolean> = new EventEmitter<Boolean>();
-  @Output() showNotationChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
-  @Output() draggableChange:    EventEmitter<Boolean> = new EventEmitter<Boolean>();
-  @Output() dropOffBoardChange: EventEmitter<string>  = new EventEmitter<string>();
-  @Output() pieceThemeChange:   EventEmitter<any>     = new EventEmitter<any>();
+  @Input()
+  set snapbackSpeed(value: any) {
+    this._snapbackSpeed = value;
+    if(this.board) this.load();
+    this.snapbackSpeedChange.emit(this._snapbackSpeed);
+  }
+
+  @Input()
+  set snapSpeed(value: any) {
+    this._snapSpeed = value;
+    if(this.board) this.load();
+    this.snapSpeedChange.emit(this._snapSpeed);
+  }
+
+  @Input()
+  set sparePieces(value: Boolean) {
+    this._sparePieces = value;
+    if(this.board) this.load();
+    this.sparePiecesChange.emit(this._sparePieces);
+  }
+
+  get position():      any     { return this._position;      }
+  get orientation():   Boolean { return this._orientation;   }
+  get showNotation():  Boolean { return this._showNotation;  }
+  get draggable():     Boolean { return this._draggable;     }
+  get dropOffBoard():  string  { return this._dropOffBoard;  }
+  get pieceTheme():    any     { return this._pieceTheme;    }
+  get moveSpeed():     any     { return this._moveSpeed;     }
+  get snapbackSpeed(): any     { return this._snapbackSpeed; }
+  get snapSpeed():     any     { return this._snapSpeed;     }
+  get sparePieces():   Boolean { return this._sparePieces;   }
+
+  @Output() positionChange:      EventEmitter<any>     = new EventEmitter<any>();
+  @Output() orientationChange:   EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() showNotationChange:  EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() draggableChange:     EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() dropOffBoardChange:  EventEmitter<string>  = new EventEmitter<string>();
+  @Output() pieceThemeChange:    EventEmitter<any>     = new EventEmitter<any>();
+  @Output() moveSpeedChange:     EventEmitter<any>     = new EventEmitter<any>();
+  @Output() snapbackSpeedChange: EventEmitter<any>     = new EventEmitter<any>();
+  @Output() snapSpeedChange:     EventEmitter<any>     = new EventEmitter<any>();
+  @Output() sparePiecesChange:   EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   // EVENTS
 
