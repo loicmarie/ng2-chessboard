@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, HostListener, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ng2-chessboard',
@@ -24,6 +24,11 @@ export class ChessboardComponent implements OnInit {
   @Output() animationChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   constructor() {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+    if (this.board) this.board.resize(event);
+  }
 
   @Input()
   set position(value: any) {
@@ -125,29 +130,29 @@ export class ChessboardComponent implements OnInit {
   @Output() snapbackEnd: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() moveEnd:     EventEmitter<Object> = new EventEmitter<Object>();
 
-  onChangeHandler(oldPos: any, newPos: any) {
+  private onChangeHandler(oldPos: any, newPos: any) {
     this.change.emit({oldPos, newPos});
   }
 
-  onDragStart(source: string, piece: string, position: any, orientation: string) {
+  private onDragStart(source: string, piece: string, position: any, orientation: string) {
     this.dragStart.emit({source, piece, position, orientation});
   }
 
-  onDragMove(newLocation: any, oldLocation: any, source: string, piece: string, position: any, orientation: string) {
+  private onDragMove(newLocation: any, oldLocation: any, source: string, piece: string, position: any, orientation: string) {
     this.dragMove.emit({newLocation, oldLocation, source, piece, position, orientation});
   }
 
-  onDrop(source: string, target: string, piece: string, newPos: any, oldPos: any, orientation: string) {
+  private onDrop(source: string, target: string, piece: string, newPos: any, oldPos: any, orientation: string) {
     this._position = newPos;
     this.positionChange.emit(this._position);
     this.drop.emit({source, target, piece, newPos, oldPos, orientation});
   }
 
-  onSnapbackEnd(piece: string, square: string, position: any, orientation: string) {
+  private onSnapbackEnd(piece: string, square: string, position: any, orientation: string) {
     this.snapbackEnd.emit({piece, square, position, orientation});
   }
 
-  onMoveEnd(oldPos: any, newPos: any) {
+  private onMoveEnd(oldPos: any, newPos: any) {
     this.moveEnd.emit({oldPos, newPos});
   }
 
