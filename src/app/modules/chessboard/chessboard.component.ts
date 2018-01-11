@@ -15,15 +15,17 @@ export class ChessboardComponent implements OnInit {
   private _draggable:     Boolean = false;
   private _dropOffBoard:  string  = 'snapback';
   private _pieceTheme:    any     = 'img/chesspieces/wikipedia/{piece}.png';
-  private _moveSpeed:     any     = 'slow';
+  private _moveSpeed:     any     = 200;
   private _snapbackSpeed: any     = 500;
   private _snapSpeed:     any     = 100;
-  private _sparePieces:   Boolean = true;
+  private _sparePieces:   Boolean = false;
 
   @Input() animation: Boolean = true;
   @Output() animationChange: EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
   constructor() {}
+
+  // PARAMETERS
 
   @HostListener('window:resize', ['$event'])
   onResize(event){
@@ -121,6 +123,16 @@ export class ChessboardComponent implements OnInit {
   @Output() snapSpeedChange:     EventEmitter<any>     = new EventEmitter<any>();
   @Output() sparePiecesChange:   EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
+  // METHODS
+
+  public clear() {
+    this.board.clear(this.animation);
+  }
+
+  public move(notation: string) {
+    this.board.move(notation);
+  }
+
   // EVENTS
 
   @Output() change:      EventEmitter<Object> = new EventEmitter<Object>();
@@ -153,6 +165,8 @@ export class ChessboardComponent implements OnInit {
   }
 
   private onMoveEnd(oldPos: any, newPos: any) {
+    this._position = newPos;
+    this.positionChange.emit(this._position);
     this.moveEnd.emit({oldPos, newPos});
   }
 
@@ -164,6 +178,11 @@ export class ChessboardComponent implements OnInit {
       'draggable': this._draggable,
       'dropOffBoard': this._dropOffBoard,
       'pieceTheme': this._pieceTheme,
+      'moveSpeed': this._moveSpeed,
+      'snapbackSpeed': this._snapbackSpeed,
+      'snapSpeed': this._snapSpeed,
+      'sparePieces': this._sparePieces,
+
       'onDragStart': this.onDragStart.bind(this),
       'onChange': this.onChangeHandler.bind(this),
       'onDragMove': this.onDragMove.bind(this),
