@@ -1,1 +1,9 @@
-<ng2-chessboard></ng2-chessboard>
+<ng2-chessboard #board
+  [(position)]="position">
+</ng2-chessboard>
+<button (click)="change('8/8/4k3/R7/2K5/8/8/8 w -- 1-0')">Change</button>
+<button (click)="change('start')">Start</button>
+<button (click)="board.orientation = !board.orientation">Flip</button>
+<button (click)="board.showNotation = !board.showNotation">Show notation</button>
+<button (click)="board.draggable = !board.draggable">Draggable</button>
+<button (click)="board.animation = !board.animation">Animation</button>
