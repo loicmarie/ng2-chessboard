@@ -13,12 +13,14 @@
   ],
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "ng serve --app module",
+    "build": "ng build --app module --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
+    "packagr": "ng-packagr -p ng-package.json",
+    "build-doc": "ng build --app doc --prod --base-href https://loicmarie.github.io/ng2-chessboard/",
+    "deploy-doc": "ngh"
   },
   "private": false,
   "dependencies": {
