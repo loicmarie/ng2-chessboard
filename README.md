@@ -1,27 +1,34 @@
-# Ng2Chessboard
+# Angular 2 Chessboard Component
+For more information about the wrapped library, and more details about parameters, methods and events, see ChessboardJS official documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+## Installation
 
-## Development server
+### Using NPM
+```
+  npm i ng2-chessboard --save
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Variables
+* `Input()/Output()` `position` (`String` or `Object`)
+* `Input()` `orientation` (`Boolean`)
+* `Input()` `showNotation` (`Boolean`)
+* `Input()` `draggable` (`Boolean`)
+* `Input()` `dropOffBoard` (`String`)
+* `Input()` `pieceTheme` (`String` or `Function`)
+* `Input()` `moveSpeed` (`Number`)
+* `Input()` `snapbackSpeed` (`Number`)
+* `Input()` `snapSpeed` (`Number`)
+* `Input()` `sparePieces` (`Boolean`)
 
-## Code scaffolding
+## Methods
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* `clear()`
+* `move(String)`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Events
+* `Output()` `change`
+* `Output()` `dragStart`
+* `Output()` `dragMove`
+* `Output()` `drop`
+* `Output()` `snapbackEnd`
+* `Output()` `moveEnd`
