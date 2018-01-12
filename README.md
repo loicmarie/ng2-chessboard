@@ -1,11 +1,38 @@
 # Angular 2 Chessboard Component
-For more information about the wrapped library, and more details about parameters, methods and events, see ChessboardJS official documentation
+
+Component wrapping the chessboardJS library. See [online documentation](https://loicmarie.github.io/ng2-chessboard/).
+
+For more information about the wrapped library, and more details about parameters, methods and events, see [ChessboardJS official documentation](http://chessboardjs.com)
 
 ## Installation
 
 ### Using NPM
 ```
   npm i ng2-chessboard --save
+```
+
+## Usage
+
+#### Basic
+```html
+<ng2-chessboard [(position)]="position"></ng2-chessboard>
+```
+
+#### Extended
+```html
+<ng2-chessboard #board
+  [(position)]="position"
+  [orientation]="orientation"
+  [showNotation]="showNotation"
+  [draggable]="draggable"
+  [animation]="animation"
+  (change)="onChange($event)"
+  (dragStart)="onDragStart($event)"
+  (dragMove)="onDragMove($event)"
+  (drop)="onDrop($event)"
+  (snapbackEnd)="onSnapbackEnd($event)"
+  (moveEnd)="onMoveEnd($event)">
+</ng2-chessboard>
 ```
 
 ## Variables
