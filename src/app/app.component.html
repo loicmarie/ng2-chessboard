@@ -1,1 +1,135 @@
-<ng2-chessboard></ng2-chessboard>
+<header>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="display-4">ng2-chessboard</h1>
+        <h3>Angular2 wrapper for chessboardjs</h3>
+      </div>
+      <div class="col">
+        <div class="header-widget">
+          <kbd>npm i ng2-chessboard --save</kbd>
+        </div>
+        <div class="header-widget">
+          <a class="btn btn-primary" href="https://github.com/loicmarie/ng2-chessboard">View on GitHub</a>
+        </div>
+        <div class="header-widget">
+          <iframe frameborder="0" height="20px" class="github-button" scrolling="0" src="https://ghbtns.com/github-btn.html?user=loicmarie&amp;repo=ng2-chessboard&amp;type=star&amp;count=true" width="170px"></iframe>
+          <iframe frameborder="0" height="20px" class="github-button" scrolling="0" src="https://ghbtns.com/github-btn.html?user=loicmarie&amp;repo=ng2-chessboard&amp;type=fork&amp;count=true" width="170px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+
+  <ul class="header-nav nav nav-tabs mb-3 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-examples-tab" data-toggle="pill" href="#pills-examples" role="tab" aria-controls="pills-examples" aria-selected="true">Example</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-doc-tab" data-toggle="pill" href="#pills-doc" role="tab" aria-controls="pills-doc" aria-selected="false">Documentation</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
+
+      <h1>Example</h1>
+      <div class="row">
+        <div class="col">
+          <pre><code class="language-markup">
+&lt;ng2-chessboard #board
+  [(position)]="position"
+  [orientation]="orientation"
+  [showNotation]="showNotation"
+  [draggable]="draggable"
+  [animation]="animation">
+&lt;/ng2-chessboard>
+
+&lt;button (click)="board.move('e2-e4')">Play e2-e4&lt;/button>
+&lt;button (click)="position = '8/8/4k3/R7/2K5/8/8/8 w -- 1-0'">Change&lt;/button>
+&lt;button (click)="position = 'start'">Reset&lt;/button>
+&lt;input type="radio" [(ngModel)]="orientation" [value]="true"> White
+&lt;input type="radio" [(ngModel)]="orientation" [value]="false"> Black
+&lt;input type="checkbox" [(ngModel)]="showNotation"/> Notation
+&lt;input type="checkbox" [(ngModel)]="draggable"/> Draggable
+&lt;input type="checkbox" [(ngModel)]="animation"/> Animation
+          </code></pre>
+        </div>
+        <div class="col">
+          <ng2-chessboard #board
+            [(position)]="position"
+            [orientation]="orientation"
+            [showNotation]="showNotation"
+            [draggable]="draggable"
+            [animation]="animation">
+          </ng2-chessboard>
+          <button (click)="board.move('e2-e4')">Play e2-e4</button>
+          <button (click)="position = '8/8/4k3/R7/2K5/8/8/8 w -- 1-0'">Change</button>
+          <button (click)="position = 'start'">Reset</button>
+          <input type="radio" [(ngModel)]="orientation" [value]="true"> White
+          <input type="radio" [(ngModel)]="orientation" [value]="false"> Black
+          <input type="checkbox" [(ngModel)]="showNotation"/> Notation
+          <input type="checkbox" [(ngModel)]="draggable"/> Draggable
+          <input type="checkbox" [(ngModel)]="animation"/> Animation
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tab-pane fade" id="pills-doc" role="tabpanel" aria-labelledby="pills-doc-tab">
+      <div class="row">
+        <div class="col-2">
+          <nav id="section-nav">
+            <ul class="content-nav nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#variables">Variables</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#methods">Methods</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#events">Events</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col" data-spy="scroll" data-target="#section-nav" data-offset="0">
+          <h2 id="installation">Installation</h2><br/>
+          <pre><code>  npm i ng2-chessboard --save</code></pre>
+          <p>For more information about the wrapped library, and more details about parameters, methods and events, see <a href="http://chessboardjs.com"> ChessboardJS official documentation</a></p>
+          <h2 id="variables">Variables</h2>
+          <ul>
+            <li><code style="color:black">Input()/Output()</code><code>position</code> (<code>String</code> or <code>Object</code>)</li>
+            <li><code style="color:black">Input()</code><code>orientation</code> (<code>Boolean</code>)</li>
+            <li><code style="color:black">Input()</code><code>showNotation</code> (<code>Boolean</code>)</li>
+            <li><code style="color:black">Input()</code><code>draggable</code> (<code>Boolean</code>)</li>
+            <li><code style="color:black">Input()</code><code>dropOffBoard</code> (<code>String</code>)</li>
+            <li><code style="color:black">Input()</code><code>pieceTheme</code> (<code>String</code> or <code>Function</code>)</li>
+            <li><code style="color:black">Input()</code><code>moveSpeed</code> (<code>Number</code>)</li>
+            <li><code style="color:black">Input()</code><code>snapbackSpeed</code> (<code>Number</code>)</li>
+            <li><code style="color:black">Input()</code><code>snapSpeed</code> (<code>Number</code>)</li>
+            <li><code style="color:black">Input()</code><code>sparePieces</code> (<code>Boolean</code>)</li>
+          </ul>
+
+          <br/><h2 id="methods">Methods</h2><br/>
+          <ul>
+            <li><code>clear()</code></li>
+            <li><code>move(String)</code></li>
+          </ul>
+
+          <br/><h2 id="events">Events</h2>
+          <ul>
+            <li><code style="color:black">Output()</code><code>change</code>
+            <li><code style="color:black">Output()</code><code>dragStart</code>
+            <li><code style="color:black">Output()</code><code>dragMove</code>
+            <li><code style="color:black">Output()</code><code>drop</code>
+            <li><code style="color:black">Output()</code><code>snapbackEnd</code>
+            <li><code style="color:black">Output()</code><code>moveEnd</code>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
