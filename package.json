@@ -3,6 +3,20 @@
   "version": "1.0.1",
   "license": "MIT",
   "description": "Angular 2 module wrapping chessboardjs library as a component",
+  "homepage": "https://loicmarie.github.io/ng2-chessboard",
+  "bugs": {
+    "url": "https://github.com/loicmarie/ng2-chessboard/issues",
+    "email": "loic.marie54@gmail.com"
+  },
+  "author": {
+    "name": "Loïc MARIE",
+    "email": "loic.marie54@gmail.com",
+    "url": "https://github.com/loicmarie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loicmarie/ng2-chessboard.git"
+  },
   "keywords": [
     "chess",
     "chessboard",
