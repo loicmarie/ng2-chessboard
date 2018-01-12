@@ -1,6 +1,6 @@
 {
   "name": "ng2-chessboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "Angular 2 module wrapping chessboardjs library as a component",
   "homepage": "https://loicmarie.github.io/ng2-chessboard",
