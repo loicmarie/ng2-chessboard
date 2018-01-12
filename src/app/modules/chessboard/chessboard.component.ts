@@ -1,3 +1,4 @@
+/// <reference path="./chessboard.d.ts" />
 import { Component, Input, Output, OnInit, HostListener, EventEmitter } from '@angular/core';
 
 @Component({
