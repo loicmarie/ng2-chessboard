@@ -1,0 +1,44 @@
+header {
+  background-color: hsl(217, 71%, 53%);
+  padding: 60px 0 101px 0;
+}
+
+header h1 {
+  color: hsl(0, 0%, 96%);
+  font-weight: bold;
+}
+
+header h3 {
+  color: hsl(0, 0%, 86%);
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-widget {
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.github-button {
+  width: 75px;
+}
+
+.header-nav {
+  position: relative;
+  top: -41px;
+}
+
+.header-nav a:not(.active) {
+  color: hsl(0, 0%, 96%);
+}
+
+.header-nav a:not(.active):hover {
+  border: none;
+}
+
+.content-nav {
+  text-align: right;
+}
