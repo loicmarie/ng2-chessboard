@@ -25,6 +25,7 @@
     "angular2",
     "module"
   ],
+  "types": "./src/app/modules/chessboard/chessboard.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --app doc",
